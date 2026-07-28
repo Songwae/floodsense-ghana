@@ -1,0 +1,247 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import SystemFlow from '../components/SystemFlow.astro';
+import NodeScene from '../components/NodeScene.astro';
+import StatusBadge from '../components/StatusBadge.astro';
+import { system } from '../data/site';
+
+const bySlug = (id: string) => system.find((s) => s.id === id)!;
+---
+<BaseLayout
+  title="Technology"
+  description="How FloodSense Ghana works — solar sensor nodes over GSM, an LSTM flood-prediction model, SMS alerting, and a planned spatial map and authority dashboard.">
+
+  <PageHeader
+    eyebrow="The system, in full"
+    title="From the riverbank to a phone in a farmer's hand."
+    lede="FloodSense is a chain of five subsystems. Data moves from field sensors, through the cellular network and a prediction model, out to communities by SMS, and up to authorities through a map and dashboard. Each part below is labelled with its honest build status."
+  />
+
+  <!-- DATA FLOW -->
+  <section class="section section--tight">
+    <div class="container">
+      <SystemFlow />
+    </div>
+  </section>
+
+  <!-- 1. SENSOR NODES -->
+  <section class="section section--panel" id="sensor-nodes">
+    <div class="container tech__split">
+      <div class="tech__media">
+        <NodeScene />
+      </div>
+      <div class="stack">
+        <div class="tech__head">
+          <span class="tech__num">01</span>
+          <StatusBadge status={bySlug('sensor-nodes').status} />
+        </div>
+        <h2>Solar-powered sensor nodes</h2>
+        <p class="lede">{bySlug('sensor-nodes').detail}</p>
+        <ul class="spec">
+          <li><span>Measures</span>Water level · rainfall · air quality</li>
+          <li><span>Power</span>Solar panel + battery, designed for off-grid sites</li>
+          <li><span>Uplink</span>GSM cellular — no Wi-Fi or internet needed on site</li>
+          <li><span>Built for</span>Riverbanks and flood-prone community edges</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. AI PREDICTION -->
+  <section class="section" id="ai-prediction">
+    <div class="container tech__split tech__split--rev">
+      <div class="stack">
+        <div class="tech__head">
+          <span class="tech__num">02</span>
+          <StatusBadge status={bySlug('ai-prediction').status} />
+        </div>
+        <h2>AI flood prediction — an LSTM model</h2>
+        <p class="lede">{bySlug('ai-prediction').detail}</p>
+        <p>
+          An <strong>LSTM (Long Short-Term Memory)</strong> network is a type of
+          recurrent neural network suited to time-series data. It learns how
+          water level and rainfall evolve over hours and days, so it can flag
+          rising risk earlier than a fixed threshold alone.
+        </p>
+        <p class="note">
+          <strong>Honest dependency:</strong> a model is only as good as its
+          data. Prediction accuracy depends on historical flood and rainfall
+          records currently being assembled with our research partners — so the
+          model is in active development, not finished.
+        </p>
+      </div>
+      <div class="tech__media">
+        <div class="lstm card" aria-hidden="true">
+          <div class="lstm__row">
+            <span class="lstm__in">Water level ↑</span>
+            <span class="lstm__in">Rainfall ↑</span>
+            <span class="lstm__in">Air quality</span>
+          </div>
+          <div class="lstm__cells">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="lstm__out">
+            <span class="lstm__risk">Predicted flood risk</span>
+            <div class="lstm__meter"><i style="width:72%"></i></div>
+          </div>
+          <p class="lstm__cap">Illustrative — time-series in, risk estimate out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SMS ALERTING -->
+  <section class="section section--panel" id="sms-alerting">
+    <div class="container tech__split">
+      <div class="tech__media">
+        <div class="sms card">
+          <div class="sms__bubble">
+            <strong>FloodSense Alert</strong>
+            <p>Rising water on the White Volta near your area. Move valuables and livestock to higher ground. Stay away from the riverbank.</p>
+            <span class="sms__meta">SMS · reaches any phone</span>
+          </div>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="tech__head">
+          <span class="tech__num">03</span>
+          <StatusBadge status={bySlug('sms-alerting').status} />
+        </div>
+        <h2>SMS-based community alerting</h2>
+        <p class="lede">{bySlug('sms-alerting').detail}</p>
+        <ul class="spec">
+          <li><span>Channel</span>Plain SMS — works on basic feature phones</li>
+          <li><span>Why SMS</span>No smartphone, app, or mobile data required</li>
+          <li><span>Reach</span>Designed for communities app-based warnings miss</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 + 5. MAP + DASHBOARD (designed) -->
+  <section class="section" id="map-dashboard">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Designed — the next build</p>
+        <h2>Seeing the whole picture: map &amp; dashboard.</h2>
+        <p class="lede">
+          These two subsystems are designed but not yet built. We show them here
+          because they are part of the plan — not because they exist today.
+        </p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card planned" id="spatial-map">
+          <div class="tech__head">
+            <span class="tech__num">04</span>
+            <StatusBadge status={bySlug('spatial-map').status} />
+          </div>
+          <h3>Spatial risk map</h3>
+          <p>{bySlug('spatial-map').detail}</p>
+        </div>
+        <div class="card planned" id="authority-dashboard">
+          <div class="tech__head">
+            <span class="tech__num">05</span>
+            <StatusBadge status={bySlug('authority-dashboard').status} />
+          </div>
+          <h3>Authority dashboard</h3>
+          <p>{bySlug('authority-dashboard').detail}</p>
+        </div>
+      </div>
+      <p class="note note--wide">
+        This website is built so a live map and dashboard can be added here later,
+        pulling real sensor data, without rebuilding the site.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--deep">
+    <div class="container center-x stack">
+      <h2>Want the engineering detail?</h2>
+      <p class="lede" style="color:var(--text-on-deep-muted); margin-inline:auto">
+        We're happy to share technical specifics with researchers, agencies, and
+        potential funders.
+      </p>
+      <p><a href="/contact/" class="btn btn-primary">Talk to us</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .tech__split {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(1.6rem, 4vw, 3.5rem); align-items: center;
+  }
+  .tech__head { display: flex; align-items: center; gap: 0.9rem; }
+  .tech__num {
+    font-family: var(--font-display); font-weight: 700; font-size: 1.1rem;
+    color: #fff; background: var(--clay-600); width: 38px; height: 38px;
+    border-radius: 9px; display: grid; place-items: center;
+  }
+  .tech__split h2 { font-size: var(--step-3); }
+
+  .spec { list-style: none; padding: 0; display: grid; gap: 0.7rem; margin-top: 0.4rem; }
+  .spec li {
+    display: grid; grid-template-columns: 8.5rem 1fr; gap: 0.6rem;
+    padding-bottom: 0.7rem; border-bottom: 1px solid var(--line);
+  }
+  .spec span {
+    font-family: var(--font-display); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand);
+    padding-top: 0.15rem;
+  }
+
+  .note {
+    font-size: 0.95rem; color: var(--ink-700);
+    background: var(--status-dev-bg); border: 1px solid #ead9a8;
+    border-left: 3px solid var(--status-dev); border-radius: var(--radius);
+    padding: 0.9rem 1.1rem;
+  }
+  .note--wide { margin-top: 1.6rem; }
+
+  /* LSTM illustration */
+  .lstm { display: grid; gap: 0.9rem; background: var(--ink-900); color: #fff; border-color: transparent; }
+  .lstm__row, .lstm__cells { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+  .lstm__cells { grid-template-columns: repeat(4, 1fr); }
+  .lstm__in {
+    font-size: 0.78rem; text-align: center; padding: 0.5rem; border-radius: 6px;
+    background: rgba(255,255,255,0.08); color: var(--gold-300); font-family: var(--font-display);
+  }
+  .lstm__cells span {
+    height: 34px; border-radius: 6px; background: linear-gradient(var(--volta-500), var(--volta-700));
+    position: relative;
+  }
+  .lstm__cells span::after {
+    content: ""; position: absolute; inset: 0; border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .lstm__out { margin-top: 0.3rem; }
+  .lstm__risk { font-family: var(--font-display); font-weight: 600; color: #fff; font-size: 0.9rem; }
+  .lstm__meter { height: 12px; border-radius: 100px; background: rgba(255,255,255,0.12); margin-top: 0.5rem; overflow: hidden; }
+  .lstm__meter i { display: block; height: 100%; background: linear-gradient(90deg, var(--gold-500), var(--clay-500)); }
+  .lstm__cap { font-size: 0.72rem; color: var(--text-on-deep-muted); margin-top: 0.2rem; }
+
+  /* SMS illustration */
+  .sms { background: var(--sand-100); display: grid; place-items: center; padding: 2rem; }
+  .sms__bubble {
+    background: #fff; border: 1px solid var(--line-strong); border-radius: 14px 14px 14px 4px;
+    padding: 1.1rem 1.2rem; max-width: 340px; box-shadow: var(--shadow-sm);
+  }
+  .sms__bubble strong { font-family: var(--font-display); color: var(--clay-700); }
+  .sms__bubble p { margin: 0.4rem 0 0.7rem; font-size: 0.95rem; }
+  .sms__meta { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; }
+
+  .planned { background: var(--bg-panel); }
+  .planned h3 { font-size: var(--step-1); margin: 0.8rem 0 0.4rem; }
+  .planned p { color: var(--text-muted); }
+
+  .section-head { max-width: 60ch; margin-bottom: clamp(1.5rem, 4vw, 2.4rem); }
+  .section-head h2 { font-size: var(--step-3); margin-block: 0.5rem 0.6rem; }
+
+  @media (max-width: 820px) {
+    .tech__split { grid-template-columns: 1fr; }
+    .tech__split--rev .tech__media { order: 2; }
+    .spec li { grid-template-columns: 1fr; gap: 0.15rem; }
+  }
+</style>

@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout
+  title="Thank you"
+  description="Your message to FloodSense Ghana has been received.">
+  <section class="section thanks">
+    <div class="container center-x stack">
+      <p class="eyebrow" style="justify-content:center">Message received</p>
+      <h1>Thank you — we'll be in touch.</h1>
+      <p class="lede" style="margin-inline:auto">
+        Your message has reached the FloodSense Ghana team. We read every enquiry
+        and will reply to you directly.
+      </p>
+      <p>
+        In the meantime, you can reach us any time at
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+      <p class="stack__cta">
+        <a href="/" class="btn btn-primary">Back to home</a>
+        <a href="/technology/" class="btn btn-ghost">Explore the system</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .thanks { padding-block: clamp(3.5rem, 9vw, 7rem); }
+  .thanks h1 { font-size: var(--step-4); margin-block: 0.5rem; }
+  .stack__cta { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-top: 0.8rem; }
+</style>

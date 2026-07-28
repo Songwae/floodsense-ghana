@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { partners, recognition } from '../data/site';
+
+// Richer context for each partner, keyed by name.
+const detail: Record<string, string> = {
+  'Ministry of Youth Development and Empowerment':
+    'A signed Memorandum of Understanding with the Government of Ghana ministry, anchoring the project within national youth-development and resilience priorities.',
+  'Africa Energy Technology Centre (AETC)':
+    'A signed incubation agreement providing mentorship, technical support, and a pathway to develop FloodSense from prototype toward deployment.',
+  'CSIR — Water Research Institute':
+    "Ghana's national water-science institute — a research partner on hydrological data, water-level science, and validation of the prediction approach.",
+  'Ghana Meteorological Agency (GMet)':
+    "The national weather authority — a research partner for rainfall and climate data that feeds the flood-prediction model.",
+  'UNESCO Ghana':
+    'A partnership supporting the project’s alignment with wider disaster-risk-reduction and community-resilience goals.',
+};
+---
+<BaseLayout
+  title="Partnerships & Recognition"
+  description="FloodSense Ghana’s institutional partnerships — a signed MOU with Ghana’s Ministry of Youth Development and Empowerment, AETC incubation, and research ties with CSIR-WRI, GMet, and UNESCO Ghana — plus awards and stakeholder engagement.">
+
+  <PageHeader
+    eyebrow="Backing &amp; recognition"
+    title="Built with institutions — and accountable to them."
+    lede="FloodSense is developed in partnership with government, research, and development institutions. These relationships keep the work grounded in real hydrology, real policy, and the real needs of at-risk communities."
+  />
+
+  <!-- PARTNERS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Partners</p>
+        <h2>Who we work with</h2>
+      </div>
+      <div class="partners">
+        {partners.map((p) => (
+          <article class="partner card">
+            <div class="partner__top">
+              <h3>{p.name}</h3>
+              <span class="partner__rel">{p.relation}</span>
+            </div>
+            <p class="partner__note">{p.note}</p>
+            <p>{detail[p.name]}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOGNITION -->
+  <section class="section section--panel">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Recognition &amp; milestones</p>
+        <h2>Where FloodSense has been recognised</h2>
+      </div>
+      <ol class="timeline">
+        {recognition.map((r) => (
+          <li class="timeline__item">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <span class="timeline__kind">{r.kind}</span>
+            <p class="timeline__title">
+              {r.title}{r.note && <em> — {r.note}</em>}
+            </p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- HONEST NOTE -->
+  <section class="section section--tight">
+    <div class="container">
+      <p class="honest-note">
+        <strong>A note on how we present this.</strong> Every partnership and
+        award listed here is real and current. We deliberately keep this page
+        factual — no logos we haven't earned the right to use, no claims of
+        deployment we haven't reached. That discipline is what makes the
+        recognition worth something.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--deep">
+    <div class="container center-x stack">
+      <h2>Interested in partnering or funding the next stage?</h2>
+      <p class="lede" style="color:var(--text-on-deep-muted); margin-inline:auto">
+        We're looking for collaborators to help move FloodSense from development
+        toward real deployment in flood-exposed communities.
+      </p>
+      <p><a href="/contact/" class="btn btn-primary">Start a conversation</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section-head { max-width: 60ch; margin-bottom: clamp(1.6rem, 4vw, 2.6rem); }
+  .section-head h2 { font-size: var(--step-3); margin-block: 0.5rem 0; }
+
+  .partners { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; }
+  .partner__top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
+  .partner__top h3 { font-size: var(--step-1); }
+  .partner__rel {
+    font-family: var(--font-display); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase; color: #fff;
+    background: var(--clay-600); padding: 0.2rem 0.55rem; border-radius: 100px; white-space: nowrap;
+  }
+  .partner__note { color: var(--gold-600); font-weight: 600; font-size: 0.85rem; margin: 0.5rem 0 0.6rem; }
+  .partner p:last-child { color: var(--text-muted); }
+
+  .timeline { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; position: relative; }
+  .timeline::before {
+    content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line-strong);
+  }
+  .timeline__item { position: relative; padding: 0 0 1.6rem 2.2rem; }
+  .timeline__item:last-child { padding-bottom: 0; }
+  .timeline__dot {
+    position: absolute; left: 0; top: 3px; width: 16px; height: 16px; border-radius: 50%;
+    background: var(--gold-500); border: 3px solid var(--bg); box-shadow: 0 0 0 1px var(--line-strong);
+  }
+  .timeline__kind {
+    font-family: var(--font-display); font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand);
+  }
+  .timeline__title { font-size: var(--step-1); font-family: var(--font-display); font-weight: 500; margin-top: 0.2rem; }
+  .timeline__title em { font-style: normal; color: var(--text-muted); font-size: 0.9rem; }
+
+  .honest-note {
+    max-width: var(--measure); margin-inline: auto; font-size: 1rem; color: var(--ink-700);
+    border-left: 3px solid var(--accent); padding-left: 1.1rem;
+  }
+</style>
