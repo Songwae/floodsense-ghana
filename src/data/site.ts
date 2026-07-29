@@ -6,8 +6,10 @@ export const site = {
   name: 'FloodSense Ghana',
   tagline: 'IoT-based multi-hazard early warning for Ghana',
   description:
-    'A solar-powered sensor network, AI flood prediction, and SMS-based community alerting — built for the Upper East Region and Ghana’s flood-exposed communities.',
-  region: 'Upper East Region, Ghana',
+    'A solar-powered sensor network, AI flood prediction, and SMS-based community alerting — targeting deployment in Accra, Ghana’s most heavily flooded area.',
+  // Deployment target vs. where the venture is developed from.
+  region: 'Accra, Ghana',
+  origin: 'Developed from the Upper East Region',
   email: 'songwaecasper7@gmail.com',
   founderName: 'Casper Songwae Gyaang',
   institution: 'Bolgatanga Technical University',
@@ -71,7 +73,7 @@ export const system: {
     summary:
       'A geographic view of flood risk across monitored zones.',
     detail:
-      'A map-based view of risk levels across monitored areas is designed but not yet built. It will visualise node locations and modelled risk for planners and responders.',
+      'A map-based view of risk levels across monitored areas is designed but not yet built. It will visualise node locations and modelled risk across Accra’s flood-prone zones for planners and responders.',
   },
   {
     id: 'authority-dashboard',
@@ -87,14 +89,9 @@ export const system: {
 // --- Institutional backing (all real / established) ------------------------
 export const partners = [
   {
-    name: 'Ministry of Youth Development and Empowerment',
-    relation: 'Signed MOU',
-    note: 'Government of Ghana',
-  },
-  {
     name: 'Africa Energy Technology Centre (AETC)',
-    relation: 'Signed incubation agreement',
-    note: 'Incubation partner',
+    relation: 'Signed ambassador program',
+    note: 'Innovation & energy technology',
   },
   {
     name: 'CSIR — Water Research Institute',
@@ -106,11 +103,6 @@ export const partners = [
     relation: 'Research partnership',
     note: 'Weather & climate data',
   },
-  {
-    name: 'UNESCO Ghana',
-    relation: 'Partnership',
-    note: 'Programme support',
-  },
 ];
 
 export const recognition = [
@@ -119,8 +111,14 @@ export const recognition = [
     kind: 'Award',
   },
   {
-    title: 'Signed incubation agreement with the Africa Energy Technology Centre',
-    kind: 'Incubation',
+    title: 'Signed ambassador program with the Africa Energy Technology Centre',
+    kind: 'Ambassador',
+  },
+  {
+    title:
+      'Officially presented to the Ministry of Youth Development and Empowerment, through the AETC',
+    kind: 'Engagement',
+    note: 'Government of Ghana',
   },
   {
     title: 'Presented to NADMO officials and community stakeholders',

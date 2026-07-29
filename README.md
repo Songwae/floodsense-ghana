@@ -1,8 +1,8 @@
 # FloodSense Ghana — Website
 
 Marketing and information site for **FloodSense Ghana**, an IoT-based
-multi-hazard early-warning system for flood-exposed communities in Ghana's
-Upper East Region and beyond.
+multi-hazard early-warning system targeting deployment in Accra — Ghana's most
+heavily flooded area — and developed from the Upper East Region.
 
 The system pairs solar-powered sensor nodes (water level, rainfall, air
 quality) transmitting over GSM, an LSTM flood-prediction model, and SMS-based
@@ -61,12 +61,10 @@ The site is a static build (`./dist/`) and deploys to any static host:
 Update `site` in `astro.config.mjs` to the final domain before production
 (affects canonical URLs and the sitemap).
 
-## Image credit
+## Media
 
-- Hero photograph: *The White Volta in the North East Region of Northern Ghana*
-  by **Minoconk**, licensed **[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)**,
-  via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_white_Volta_in_the_North_east_region_of_Northern_Ghana.jpg).
-  Credited on-page in the hero caption.
+- Home hero: project introduction video (`public/media/floodsense-home.mp4`),
+  provided by the founder.
 
-All other graphics (logo, system diagrams, illustrations) are original to this
+All graphics (logo, system diagrams, illustrations) are original to this
 project.

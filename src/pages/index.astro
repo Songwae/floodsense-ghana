@@ -1,9 +1,7 @@
 ---
-import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StatusBadge from '../components/StatusBadge.astro';
 import { system, partners, recognition, site } from '../data/site';
-import whiteVolta from '../assets/white-volta.jpg';
 ---
 <BaseLayout>
   <!-- ===================== HERO ===================== -->
@@ -17,7 +15,8 @@ import whiteVolta from '../assets/white-volta.jpg';
         <p class="lede">
           FloodSense Ghana is an IoT early-warning system: solar-powered sensor
           nodes, an AI flood-prediction model, and SMS alerts that reach basic
-          phones — built for communities without smartphones or reliable data.
+          phones — targeting deployment in Accra, Ghana's most heavily flooded
+          area.
         </p>
         <div class="hero__actions">
           <a href="/technology/" class="btn btn-primary">See how it works →</a>
@@ -31,23 +30,23 @@ import whiteVolta from '../assets/white-volta.jpg';
 
       <figure class="hero__art">
         <div class="hero__photo">
-          <Image
-            src={whiteVolta}
-            alt="The White Volta running high and sediment-brown through the savanna of North East Ghana"
-            widths={[460, 720, 940]}
-            sizes="(max-width: 860px) 92vw, 460px"
-            loading="eager"
-            fetchpriority="high"
-          />
+          <video
+            controls
+            preload="metadata"
+            playsinline
+            aria-label="FloodSense Ghana — introduction video"
+          >
+            <source src="/media/floodsense-home.mp4" type="video/mp4" />
+            Your browser does not support embedded video.
+            <a href="/media/floodsense-home.mp4">Download the video</a> instead.
+          </video>
           <div class="hero__badge">
             <span class="hero__badge-k">🏆 1st Place</span>
             <span class="hero__badge-v">AETC 2026 Energy Innovators Pitch</span>
           </div>
         </div>
         <figcaption class="hero__credit">
-          The White Volta in flood, North East Ghana · Photo
-          <a href="https://commons.wikimedia.org/wiki/File:The_white_Volta_in_the_North_east_region_of_Northern_Ghana.jpg"
-             target="_blank" rel="noopener">Minoconk, CC&nbsp;BY-SA&nbsp;4.0</a>
+          FloodSense Ghana — project introduction
         </figcaption>
       </figure>
     </div>
@@ -66,10 +65,11 @@ import whiteVolta from '../assets/white-volta.jpg';
       </div>
       <div class="prose stack">
         <p>
-          Across Ghana — and acutely in the flood-prone north and rapidly
-          developing peri-urban Accra — rising water damages homes, farmland,
-          and livelihoods. Many at-risk communities have no smartphone access
-          and no early, local warning of what is coming.
+          Accra is Ghana's most heavily flooded area. Almost every rainy season,
+          rising water in its dense, fast-growing neighbourhoods — communities
+          like Adenta and Madina — damages homes, businesses, and livelihoods,
+          and warnings routinely arrive late or never reach the people in harm's
+          way.
         </p>
         <p>
           FloodSense closes that gap with low-cost sensing at the water's edge,
@@ -226,21 +226,20 @@ import whiteVolta from '../assets/white-volta.jpg';
   }
   .hero__art { position: relative; margin: 0; }
   .hero__photo { position: relative; border-radius: 14px; overflow: hidden;
-    box-shadow: var(--shadow-md); border: 1px solid var(--line-strong); }
-  .hero__photo img {
-    display: block; width: 100%; height: 100%;
-    aspect-ratio: 4 / 5; object-fit: cover; object-position: center 40%;
-  }
+    box-shadow: var(--shadow-md); border: 1px solid var(--line-strong);
+    background: var(--ink-900); }
+  .hero__photo video { display: block; width: 100%; height: auto; max-height: 70vh; }
   .hero__credit {
     font-size: 0.72rem; color: var(--text-muted); margin-top: 0.5rem; text-align: right;
   }
   .hero__credit a { color: var(--text-muted); }
   .hero__badge {
-    position: absolute; right: 12px; bottom: 12px;
+    position: absolute; right: 12px; top: 12px;
     background: color-mix(in srgb, var(--ink-900) 92%, transparent); color: #fff;
     border-radius: 10px; padding: 0.7rem 1rem; box-shadow: var(--shadow-md);
     display: grid; gap: 0.15rem; max-width: 220px;
     backdrop-filter: blur(4px);
+    pointer-events: none;
   }
   .hero__badge-k { font-family: var(--font-display); font-weight: 700; color: var(--gold-300); }
   .hero__badge-v { font-size: 0.8rem; color: var(--text-on-deep-muted); line-height: 1.3; }
@@ -318,7 +317,6 @@ import whiteVolta from '../assets/white-volta.jpg';
   @media (max-width: 860px) {
     .hero__grid, .problem__grid, .honesty__grid, .cta__inner { grid-template-columns: 1fr; }
     .hero__art { order: -1; max-width: 460px; }
-    .hero__photo img { aspect-ratio: 3 / 2; object-position: center 45%; }
     .cta__actions { grid-auto-flow: column; justify-content: start; flex-wrap: wrap; }
   }
 </style>
