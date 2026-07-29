@@ -65,6 +65,11 @@ Update `site` in `astro.config.mjs` to the final domain before production
 
 - Home hero: project introduction video (`public/media/floodsense-home.mp4`),
   provided by the founder.
+- Founder photo (`src/assets/founder.jpg`): provided by the founder.
+- Sensor hardware photos and flood aerial (`src/assets/sensor-pole.jpg`,
+  `sensor-station.jpg`, `flood-aerial.jpg`): sourced from
+  [Pexels](https://www.pexels.com) under the
+  [Pexels license](https://www.pexels.com/license/) (free to use, no
+  attribution required). Captioned on-page as illustrative.
 
-All graphics (logo, system diagrams, illustrations) are original to this
-project.
+All graphics (logo, system diagrams) are original to this project.
