@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StatusBadge from '../components/StatusBadge.astro';
 import { system, partners, recognition, site } from '../data/site';
+import floodAerial from '../assets/flood-aerial.jpg';
 ---
 <BaseLayout>
   <!-- ===================== HERO ===================== -->
@@ -77,6 +79,20 @@ import { system, partners, recognition, site } from '../data/site';
           on the phones people already carry: <strong>plain SMS</strong>.
         </p>
       </div>
+    </div>
+    <div class="container">
+      <figure class="problem__figure">
+        <Image
+          src={floodAerial}
+          alt="Aerial view of a dense neighbourhood inundated by brown floodwater, streets and homes submerged"
+          widths={[720, 1080]}
+          sizes="(max-width: 860px) 92vw, 1080px"
+        />
+        <figcaption>
+          When drains and waterways overflow, whole neighbourhoods go under —
+          often with no warning at all. <span class="muted">(Illustrative image.)</span>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
@@ -251,6 +267,12 @@ import { system, partners, recognition, site } from '../data/site';
   /* ---- Problem ---- */
   .problem__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
   .problem__title { font-size: var(--step-3); margin-top: 0.5rem; }
+  .problem__figure { margin: clamp(1.8rem, 4vw, 2.8rem) 0 0; }
+  .problem__figure img {
+    width: 100%; height: auto; max-height: 460px; object-fit: cover;
+    border-radius: 14px; border: 1px solid var(--line-strong); box-shadow: var(--shadow-md);
+  }
+  .problem__figure figcaption { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.6rem; }
 
   /* ---- Pipeline ---- */
   .pipeline { list-style: none; padding: 0; display: grid; gap: 1rem; }

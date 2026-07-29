@@ -1,10 +1,12 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import SystemFlow from '../components/SystemFlow.astro';
-import NodeScene from '../components/NodeScene.astro';
 import StatusBadge from '../components/StatusBadge.astro';
 import { system } from '../data/site';
+import sensorPole from '../assets/sensor-pole.jpg';
+import sensorStation from '../assets/sensor-station.jpg';
 
 const bySlug = (id: string) => system.find((s) => s.id === id)!;
 ---
@@ -28,9 +30,26 @@ const bySlug = (id: string) => system.find((s) => s.id === id)!;
   <!-- 1. SENSOR NODES -->
   <section class="section section--panel" id="sensor-nodes">
     <div class="container tech__split">
-      <div class="tech__media">
-        <NodeScene />
-      </div>
+      <figure class="tech__media sensor-gallery">
+        <div class="sensor-gallery__imgs">
+          <Image
+            src={sensorPole}
+            alt="A pole-mounted solar-powered weather station with wind sensors against a blue sky"
+            widths={[360, 720]}
+            sizes="(max-width: 820px) 45vw, 260px"
+          />
+          <Image
+            src={sensorStation}
+            alt="Close-up of a wind vane and anemometer on an outdoor sensor mount"
+            widths={[360, 720]}
+            sizes="(max-width: 820px) 45vw, 260px"
+          />
+        </div>
+        <figcaption class="sensor-gallery__cap">
+          Representative field-station hardware, shown for illustration — the
+          FloodSense node design is in development.
+        </figcaption>
+      </figure>
       <div class="stack">
         <div class="tech__head">
           <span class="tech__num">01</span>
@@ -173,6 +192,13 @@ const bySlug = (id: string) => system.find((s) => s.id === id)!;
     display: grid; grid-template-columns: 1fr 1fr;
     gap: clamp(1.6rem, 4vw, 3.5rem); align-items: center;
   }
+  .sensor-gallery { margin: 0; }
+  .sensor-gallery__imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .sensor-gallery__imgs img {
+    width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 4;
+    border-radius: 12px; border: 1px solid var(--line-strong); box-shadow: var(--shadow-sm);
+  }
+  .sensor-gallery__cap { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.6rem; }
   .tech__head { display: flex; align-items: center; gap: 0.9rem; }
   .tech__num {
     font-family: var(--font-display); font-weight: 700; font-size: 1.1rem;
