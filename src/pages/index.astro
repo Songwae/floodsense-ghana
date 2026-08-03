@@ -4,6 +4,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import StatusBadge from '../components/StatusBadge.astro';
 import { system, partners, recognition, site } from '../data/site';
 import floodAerial from '../assets/flood-aerial.jpg';
+import aetcMinistryPresentation from '../assets/aetc-ministry-presentation.jpg';
+import aetcPecanVisit from '../assets/aetc-pecan-visit.jpg';
+import aetcAkumah from '../assets/aetc-akumah.jpg';
+
+const homeGallery = [
+  {
+    src: aetcMinistryPresentation,
+    alt: 'The AETC delegation with Hon. George Opare Addo, Minister for Youth Development and Empowerment',
+    cap: 'At the Ministry of Youth Development and Empowerment',
+  },
+  {
+    src: aetcPecanVisit,
+    alt: 'Group photo at Pecan Energies with AETC leadership and pitch challenge winners',
+    cap: 'Presenting FloodSense at Pecan Energies',
+  },
+  {
+    src: aetcAkumah,
+    alt: 'The founder with Ms Emelia Akumah, Founder and President of the AETC',
+    cap: 'With Ms Emelia Akumah, Founder and President of the AETC',
+  },
+];
 ---
 <BaseLayout>
   <!-- ===================== HERO ===================== -->
@@ -34,8 +55,11 @@ import floodAerial from '../assets/flood-aerial.jpg';
       <figure class="hero__art">
         <div class="hero__photo">
           <video
+            autoplay
+            muted
+            loop
             controls
-            preload="metadata"
+            preload="auto"
             playsinline
             aria-label="FloodSense Ghana introduction video"
           >
@@ -192,6 +216,16 @@ import floodAerial from '../assets/flood-aerial.jpg';
         ))}
       </ul>
 
+      <div class="home-gallery">
+        {homeGallery.map((g) => (
+          <figure class="home-gallery__item">
+            <Image src={g.src} alt={g.alt} widths={[480, 960]} sizes="(max-width: 700px) 92vw, 380px" />
+            <figcaption>{g.cap}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <p class="home-gallery__credit">Photos: Africa Energy Technology Centre (AETC).</p>
+
       <p class="center-x" style="margin-top:1.8rem">
         <a href="/partnerships/" class="btn btn-ghost">More on our partnerships</a>
       </p>
@@ -322,6 +356,19 @@ import floodAerial from '../assets/flood-aerial.jpg';
   }
   .recognition__title { font-weight: 500; }
   .recognition__title em { color: var(--text-muted); font-style: normal; }
+
+  /* ---- Home gallery ---- */
+  .home-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+  .home-gallery__item { margin: 0; }
+  .home-gallery__item img {
+    width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+    border-radius: 12px; border: 1px solid var(--line-strong); box-shadow: var(--shadow-sm);
+  }
+  .home-gallery__item figcaption { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.5rem; }
+  .home-gallery__credit { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.8rem; }
+  @media (max-width: 700px) {
+    .home-gallery { grid-template-columns: 1fr; }
+  }
 
   /* ---- CTA ---- */
   .cta__inner {
