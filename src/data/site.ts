@@ -6,7 +6,7 @@ export const site = {
   name: 'FloodSense Ghana',
   tagline: 'IoT-based multi-hazard early warning for Ghana',
   description:
-    'A solar-powered sensor network, AI flood prediction, and SMS-based community alerting — targeting deployment in Accra, Ghana’s most heavily flooded area.',
+    'A solar-powered sensor network, AI flood prediction, and SMS alerts for Accra, the most heavily flooded area in Ghana.',
   // Deployment target vs. where the venture is developed from.
   region: 'Accra, Ghana',
   origin: 'Developed from the Upper East Region',
@@ -19,7 +19,7 @@ export type Status = 'dev' | 'design' | 'field';
 
 export const statusLabel: Record<Status, string> = {
   dev: 'In development',
-  design: 'Designed · not yet built',
+  design: 'Designed, not yet built',
   field: 'Presented in the field',
 };
 
@@ -46,7 +46,7 @@ export const system: {
     summary:
       'Field units measuring water level, rainfall, and air quality, transmitting over GSM.',
     detail:
-      'Each node is designed to run off-grid on solar and battery, sampling water level, rainfall, and air-quality readings and relaying them over the GSM cellular network — no internet or Wi-Fi required at the site.',
+      'Each node is designed to run off-grid on solar and battery, sampling water level, rainfall, and air-quality readings and relaying them over the GSM cellular network. No internet or Wi-Fi is required at the site.',
   },
   {
     id: 'ai-prediction',
@@ -64,7 +64,7 @@ export const system: {
     summary:
       'Plain-text SMS warnings for communities without smartphone or data access.',
     detail:
-      'Alerts are delivered by SMS so they reach basic phones — deliberately built for communities without smartphones or mobile data, where app-based warnings would never arrive.',
+      'Alerts are delivered by SMS so they reach basic phones. This is built for communities without smartphones or mobile data, where app-based warnings would never arrive.',
   },
   {
     id: 'spatial-map',
@@ -94,7 +94,7 @@ export const partners = [
     note: 'Innovation & energy technology',
   },
   {
-    name: 'CSIR — Water Research Institute',
+    name: 'CSIR Water Research Institute',
     relation: 'Research partnership',
     note: 'Water science & data',
   },
@@ -107,8 +107,9 @@ export const partners = [
 
 export const recognition = [
   {
-    title: '1st Place — AETC 2026 Energy Innovators Pitch Competition',
+    title: 'Winner, AETC NextGen Innovation Pitch Challenge 2026',
     kind: 'Award',
+    note: 'Prize presented by Hon. George Opare Addo, Minister for Youth Development and Empowerment',
   },
   {
     title: 'Signed ambassador program with the Africa Energy Technology Centre',
@@ -121,8 +122,29 @@ export const recognition = [
     note: 'Government of Ghana',
   },
   {
+    title: 'Presented FloodSense to Pecan Energies during an AETC industry visit',
+    kind: 'Engagement',
+    note: 'Accra',
+  },
+  {
     title: 'Presented to NADMO officials and community stakeholders',
     kind: 'Engagement',
     note: 'Adenta and Madina, Accra',
+  },
+];
+
+// AETC's own coverage of engagements FloodSense took part in.
+export const pressLinks = [
+  {
+    title:
+      'Bridging talent and industry: AETC and Pecan Energies forge a path for the next generation of energy leaders',
+    href: 'https://theaetc.org/bridging-talent-and-industry-aetc-and-pecan-energies-forge-path-for-africas-next-generation-of-energy-leaders/',
+    source: 'theaetc.org',
+  },
+  {
+    title:
+      "AETC strengthens strategic collaboration with Ghana's Ministry of Youth Development and Empowerment",
+    href: 'https://theaetc.org/aetc-strengthens-strategic-collaboration-with-ghanas-ministry-of-youth-development-and-empowerment-to-advance-youth-innovation-and-entrepreneurship/',
+    source: 'theaetc.org',
   },
 ];

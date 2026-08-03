@@ -4,20 +4,20 @@ import PageHeader from '../components/PageHeader.astro';
 import { site } from '../data/site';
 
 const routes = [
-  { k: 'Partnerships', d: 'Government, research, and development collaborators.', s: 'Partnership enquiry — FloodSense Ghana' },
-  { k: 'Funding', d: 'Grants, investment, and support for the next build stage.', s: 'Funding enquiry — FloodSense Ghana' },
-  { k: 'Press', d: 'Media, interviews, and speaking requests.', s: 'Press enquiry — FloodSense Ghana' },
+  { k: 'Partnerships', d: 'Government, research, and development collaborators.', s: 'Partnership enquiry: FloodSense Ghana' },
+  { k: 'Funding', d: 'Grants, investment, and support for the next build stage.', s: 'Funding enquiry: FloodSense Ghana' },
+  { k: 'Press', d: 'Media, interviews, and speaking requests.', s: 'Press enquiry: FloodSense Ghana' },
 ];
 const mailto = (subject: string) => `mailto:${site.email}?subject=${encodeURIComponent(subject)}`;
 ---
 <BaseLayout
   title="Contact"
-  description="Contact FloodSense Ghana — for partnership, funding, and press enquiries.">
+  description="Contact FloodSense Ghana for partnership, funding, and press enquiries.">
 
   <PageHeader
     eyebrow="Get in touch"
     title="Let's talk about reaching the communities that get missed."
-    lede="Whether you're a funder, an agency, a researcher, or a journalist — we'd like to hear from you."
+    lede="Whether you're a funder, an agency, a researcher, or a journalist, we'd like to hear from you."
   />
 
   <!-- DIRECT ROUTES -->
@@ -28,7 +28,7 @@ const mailto = (subject: string) => `mailto:${site.email}?subject=${encodeURICom
           <a class="route card" href={mailto(r.s)}>
             <span class="route__k">{r.k}</span>
             <p class="route__d">{r.d}</p>
-            <span class="route__cta">Email us →</span>
+            <span class="route__cta">Email us</span>
           </a>
         ))}
       </div>
@@ -50,8 +50,8 @@ const mailto = (subject: string) => `mailto:${site.email}?subject=${encodeURICom
         <p class="lede">Tell us who you are and how you'd like to work together. We read every message.</p>
         <p class="form-note">
           <strong>Note:</strong> this form activates automatically when the site
-          is deployed to Netlify. On other hosts, connect a form service (e.g.
-          Formspree) or use the direct email above — nothing is lost either way.
+          is deployed to Netlify. On other hosts, connect a form service such as
+          Formspree, or simply use the direct email above.
         </p>
       </div>
 

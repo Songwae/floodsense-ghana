@@ -12,12 +12,12 @@ const bySlug = (id: string) => system.find((s) => s.id === id)!;
 ---
 <BaseLayout
   title="Technology"
-  description="How FloodSense Ghana works — solar sensor nodes over GSM, an LSTM flood-prediction model, SMS alerting, and a planned spatial map and authority dashboard.">
+  description="How FloodSense Ghana works: solar sensor nodes over GSM, an LSTM flood-prediction model, SMS alerting, and a planned spatial map and authority dashboard.">
 
   <PageHeader
     eyebrow="The system, in full"
     title="From the water's edge to the phone in your hand."
-    lede="FloodSense is a chain of five subsystems, targeted at Accra's flood-prone communities. Data moves from field sensors, through the cellular network and a prediction model, out to communities by SMS, and up to authorities through a map and dashboard. Each part below is labelled with its honest build status."
+    lede="FloodSense is a chain of five subsystems, targeted at Accra's flood-prone communities. Data moves from field sensors, through the cellular network and a prediction model, out to communities by SMS, and up to authorities through a map and dashboard. Each part below is labelled with its current build status."
   />
 
   <!-- DATA FLOW -->
@@ -46,7 +46,7 @@ const bySlug = (id: string) => system.find((s) => s.id === id)!;
           />
         </div>
         <figcaption class="sensor-gallery__cap">
-          Representative field-station hardware, shown for illustration — the
+          Representative field-station hardware, shown for illustration. The
           FloodSense node design is in development.
         </figcaption>
       </figure>
@@ -60,7 +60,7 @@ const bySlug = (id: string) => system.find((s) => s.id === id)!;
         <ul class="spec">
           <li><span>Measures</span>Water level · rainfall · air quality</li>
           <li><span>Power</span>Solar panel + battery, designed for off-grid sites</li>
-          <li><span>Uplink</span>GSM cellular — no Wi-Fi or internet needed on site</li>
+          <li><span>Uplink</span>GSM cellular, no Wi-Fi or internet needed on site</li>
           <li><span>Built for</span>Riverbanks and flood-prone community edges</li>
         </ul>
       </div>
@@ -75,7 +75,7 @@ const bySlug = (id: string) => system.find((s) => s.id === id)!;
           <span class="tech__num">02</span>
           <StatusBadge status={bySlug('ai-prediction').status} />
         </div>
-        <h2>AI flood prediction — an LSTM model</h2>
+        <h2>AI flood prediction: an LSTM model</h2>
         <p class="lede">{bySlug('ai-prediction').detail}</p>
         <p>
           An <strong>LSTM (Long Short-Term Memory)</strong> network is a type of
@@ -84,10 +84,10 @@ const bySlug = (id: string) => system.find((s) => s.id === id)!;
           rising risk earlier than a fixed threshold alone.
         </p>
         <p class="note">
-          <strong>Honest dependency:</strong> a model is only as good as its
-          data. Prediction accuracy depends on historical flood and rainfall
-          records currently being assembled with our research partners — so the
-          model is in active development, not finished.
+          <strong>Worth knowing:</strong> a model is only as good as its data.
+          Prediction accuracy depends on historical flood and rainfall records
+          that are still being assembled with our research partners. The model
+          is in active development, not finished.
         </p>
       </div>
       <div class="tech__media">
@@ -104,7 +104,7 @@ const bySlug = (id: string) => system.find((s) => s.id === id)!;
             <span class="lstm__risk">Predicted flood risk</span>
             <div class="lstm__meter"><i style="width:72%"></i></div>
           </div>
-          <p class="lstm__cap">Illustrative — time-series in, risk estimate out.</p>
+          <p class="lstm__cap">Illustrative: time series in, risk estimate out.</p>
         </div>
       </div>
     </div>
@@ -130,7 +130,7 @@ const bySlug = (id: string) => system.find((s) => s.id === id)!;
         <h2>SMS-based community alerting</h2>
         <p class="lede">{bySlug('sms-alerting').detail}</p>
         <ul class="spec">
-          <li><span>Channel</span>Plain SMS — works on basic feature phones</li>
+          <li><span>Channel</span>Plain SMS, works on basic feature phones</li>
           <li><span>Why SMS</span>No smartphone, app, or mobile data required</li>
           <li><span>Reach</span>Designed for communities app-based warnings miss</li>
         </ul>
@@ -142,11 +142,11 @@ const bySlug = (id: string) => system.find((s) => s.id === id)!;
   <section class="section" id="map-dashboard">
     <div class="container">
       <div class="section-head">
-        <p class="eyebrow">Designed — the next build</p>
+        <p class="eyebrow">The next build</p>
         <h2>Seeing the whole picture: map &amp; dashboard.</h2>
         <p class="lede">
           These two subsystems are designed but not yet built. We show them here
-          because they are part of the plan — not because they exist today.
+          because they are part of the plan, not because they exist today.
         </p>
       </div>
       <div class="grid grid-2">

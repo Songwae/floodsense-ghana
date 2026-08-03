@@ -1,26 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
-import { partners, recognition } from '../data/site';
+import { partners, recognition, pressLinks } from '../data/site';
 
 // Richer context for each partner, keyed by name.
 const detail: Record<string, string> = {
   'Africa Energy Technology Centre (AETC)':
-    'A signed ambassador program with the AETC — won through its 2026 Energy Innovators Pitch Competition — providing a platform, visibility, and access that has opened doors to government, including the official presentation of FloodSense to the Ministry of Youth Development and Empowerment.',
-  'CSIR — Water Research Institute':
-    "Ghana's national water-science institute — a research partner on hydrological data, water-level science, and validation of the prediction approach.",
+    'A signed ambassador program with the AETC, founded and led by Ms Emelia Akumah, won through its NextGen Innovation Pitch Challenge. The program has opened doors to industry and government, including the official presentation of FloodSense to the Ministry of Youth Development and Empowerment and an industry visit to Pecan Energies.',
+  'CSIR Water Research Institute':
+    "Ghana's national water-science institute, and a research partner on hydrological data, water-level science, and validation of the prediction approach.",
   'Ghana Meteorological Agency (GMet)':
-    'The national weather authority — a research partner for rainfall and climate data that feeds the flood-prediction model.',
+    'The national weather authority, and a research partner for the rainfall and climate data that feed the flood-prediction model.',
 };
 ---
 <BaseLayout
   title="Partnerships & Recognition"
-  description="FloodSense Ghana’s institutional backing — a signed AETC ambassador program, research ties with CSIR-WRI and GMet, official presentation to the Ministry of Youth Development and Empowerment, and engagement with NADMO and Accra communities.">
+  description="FloodSense Ghana's institutional backing: a signed AETC ambassador program, research ties with CSIR-WRI and GMet, official presentation to the Ministry of Youth Development and Empowerment, and engagement with NADMO and Accra communities.">
 
   <PageHeader
     eyebrow="Backing &amp; recognition"
-    title="Built with institutions — and accountable to them."
-    lede="FloodSense is developed alongside research institutions and Ghana's innovation ecosystem, and has been presented directly to the government agencies responsible for disaster response. These relationships keep the work grounded in real hydrology, real policy, and the real needs of Accra's at-risk communities."
+    title="Built with institutions, and accountable to them."
+    lede="FloodSense is developed alongside research institutions and Ghana's innovation ecosystem, and has been presented directly to the government agencies responsible for disaster response. These relationships keep the work grounded in the science, the policy, and the needs of Accra's at-risk communities."
   />
 
   <!-- PARTNERS -->
@@ -58,11 +58,29 @@ const detail: Record<string, string> = {
             <span class="timeline__dot" aria-hidden="true"></span>
             <span class="timeline__kind">{r.kind}</span>
             <p class="timeline__title">
-              {r.title}{r.note && <em> — {r.note}</em>}
+              {r.title}{r.note && <em> · {r.note}</em>}
             </p>
           </li>
         ))}
       </ol>
+    </div>
+  </section>
+
+  <!-- IN THE NEWS -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Coverage</p>
+        <h2>Read about these engagements</h2>
+      </div>
+      <ul class="press">
+        {pressLinks.map((l) => (
+          <li class="press__item card">
+            <a href={l.href} target="_blank" rel="noopener">{l.title}</a>
+            <span class="press__src">{l.source}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
@@ -71,10 +89,10 @@ const detail: Record<string, string> = {
     <div class="container">
       <p class="honest-note">
         <strong>A note on how we present this.</strong> Every partnership and
-        award listed here is real and current. We deliberately keep this page
-        factual — no logos we haven't earned the right to use, no claims of
-        deployment we haven't reached. That discipline is what makes the
-        recognition worth something.
+        award listed here is real and current. We keep this page factual: no
+        logos we have not earned the right to use, and no claims of deployment
+        we have not reached. That discipline is what makes the recognition
+        worth something.
       </p>
     </div>
   </section>
@@ -128,4 +146,13 @@ const detail: Record<string, string> = {
     max-width: var(--measure); margin-inline: auto; font-size: 1rem; color: var(--ink-700);
     border-left: 3px solid var(--accent); padding-left: 1.1rem;
   }
+
+  .press { list-style: none; padding: 0; display: grid; gap: 0.8rem; }
+  .press__item { display: grid; gap: 0.3rem; padding: 1rem 1.2rem; }
+  .press__item a {
+    font-family: var(--font-display); font-weight: 600; color: var(--ink-900);
+    text-decoration: none; font-size: 1.05rem;
+  }
+  .press__item a:hover { color: var(--brand-strong); text-decoration: underline; }
+  .press__src { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.04em; }
 </style>

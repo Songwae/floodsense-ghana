@@ -17,16 +17,17 @@ import floodAerial from '../assets/flood-aerial.jpg';
         <p class="lede">
           FloodSense Ghana is an IoT early-warning system: solar-powered sensor
           nodes, an AI flood-prediction model, and SMS alerts that reach basic
-          phones — targeting deployment in Accra, Ghana's most heavily flooded
-          area.
+          phones. It is being built for Accra, the most heavily flooded area in
+          Ghana.
         </p>
         <div class="hero__actions">
-          <a href="/technology/" class="btn btn-primary">See how it works →</a>
+          <a href="/technology/" class="btn btn-primary">See how it works</a>
           <a href="/partnerships/" class="btn btn-ghost">Partnerships &amp; recognition</a>
         </div>
         <p class="hero__honest">
-          <strong>An early-stage venture, honestly labelled.</strong> Every part
-          of the system below carries its real build status.
+          <strong>An early-stage venture.</strong> Every part of the system
+          below carries its real build status, so you can see exactly what
+          exists today.
         </p>
       </div>
 
@@ -36,19 +37,19 @@ import floodAerial from '../assets/flood-aerial.jpg';
             controls
             preload="metadata"
             playsinline
-            aria-label="FloodSense Ghana — introduction video"
+            aria-label="FloodSense Ghana introduction video"
           >
             <source src="/media/floodsense-home.mp4" type="video/mp4" />
             Your browser does not support embedded video.
             <a href="/media/floodsense-home.mp4">Download the video</a> instead.
           </video>
           <div class="hero__badge">
-            <span class="hero__badge-k">🏆 1st Place</span>
-            <span class="hero__badge-v">AETC 2026 Energy Innovators Pitch</span>
+            <span class="hero__badge-k">Winner</span>
+            <span class="hero__badge-v">AETC NextGen Innovation Pitch Challenge 2026</span>
           </div>
         </div>
         <figcaption class="hero__credit">
-          FloodSense Ghana — project introduction
+          FloodSense Ghana project introduction
         </figcaption>
       </figure>
     </div>
@@ -62,16 +63,15 @@ import floodAerial from '../assets/flood-aerial.jpg';
       <div>
         <p class="eyebrow">The problem</p>
         <h2 class="problem__title">
-          Floods arrive fast. Warnings often arrive late — or never.
+          Floods arrive fast. Warnings arrive late, or not at all.
         </h2>
       </div>
       <div class="prose stack">
         <p>
-          Accra is Ghana's most heavily flooded area. Almost every rainy season,
-          rising water in its dense, fast-growing neighbourhoods — communities
-          like Adenta and Madina — damages homes, businesses, and livelihoods,
-          and warnings routinely arrive late or never reach the people in harm's
-          way.
+          Accra is the most heavily flooded area in Ghana. Almost every rainy
+          season, rising water in dense, fast-growing neighbourhoods like Adenta
+          and Madina damages homes, businesses, and livelihoods. Warnings
+          routinely come late or never reach the people in harm's way.
         </p>
         <p>
           FloodSense closes that gap with low-cost sensing at the water's edge,
@@ -89,7 +89,7 @@ import floodAerial from '../assets/flood-aerial.jpg';
           sizes="(max-width: 860px) 92vw, 1080px"
         />
         <figcaption>
-          When drains and waterways overflow, whole neighbourhoods go under —
+          When drains and waterways overflow, whole neighbourhoods go under,
           often with no warning at all. <span class="muted">(Illustrative image.)</span>
         </figcaption>
       </figure>
@@ -101,10 +101,10 @@ import floodAerial from '../assets/flood-aerial.jpg';
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">The system</p>
-        <h2>Five subsystems, from riverbank to phone.</h2>
+        <h2>Five subsystems, from the water's edge to the phone.</h2>
         <p class="lede">
           Data flows from the field to the community. Each subsystem is labelled
-          with its honest, current status.
+          with its current status.
         </p>
       </div>
 
@@ -124,7 +124,7 @@ import floodAerial from '../assets/flood-aerial.jpg';
       </ol>
 
       <p class="center-x" style="margin-top:1.8rem">
-        <a href="/technology/" class="btn btn-ghost">Full technical breakdown →</a>
+        <a href="/technology/" class="btn btn-ghost">Full technical breakdown</a>
       </p>
     </div>
   </section>
@@ -134,10 +134,10 @@ import floodAerial from '../assets/flood-aerial.jpg';
     <div class="container honesty__grid">
       <div class="stack">
         <p class="eyebrow">Where things really stand</p>
-        <h2>We say what's built — and what isn't.</h2>
+        <h2>What's built, and what isn't.</h2>
         <p class="lede" style="color:var(--text-on-deep-muted)">
           Credibility with partners like NADMO and our research collaborators
-          depends on never overstating deployment. Here is the whole system, by
+          depends on never overstating deployment. This is the whole system, by
           status.
         </p>
       </div>
@@ -169,7 +169,7 @@ import floodAerial from '../assets/flood-aerial.jpg';
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Backing &amp; recognition</p>
-        <h2>Built with institutions, not in isolation.</h2>
+        <h2>The institutions behind the work.</h2>
       </div>
 
       <div class="partner-strip">
@@ -186,14 +186,14 @@ import floodAerial from '../assets/flood-aerial.jpg';
           <li class="recognition__item">
             <span class="recognition__kind">{r.kind}</span>
             <span class="recognition__title">
-              {r.title}{r.note && <em> — {r.note}</em>}
+              {r.title}{r.note && <em> · {r.note}</em>}
             </span>
           </li>
         ))}
       </ul>
 
       <p class="center-x" style="margin-top:1.8rem">
-        <a href="/partnerships/" class="btn btn-ghost">More on our partnerships →</a>
+        <a href="/partnerships/" class="btn btn-ghost">More on our partnerships</a>
       </p>
     </div>
   </section>
@@ -297,7 +297,7 @@ import floodAerial from '../assets/flood-aerial.jpg';
   }
   .honesty__col ul { list-style: none; padding: 0; margin-top: 0.8rem; display: grid; gap: 0.4rem; }
   .honesty__col li { color: var(--text-on-deep); position: relative; padding-left: 1.1rem; }
-  .honesty__col li::before { content: "—"; position: absolute; left: 0; color: var(--gold-300); }
+  .honesty__col li::before { content: "·"; position: absolute; left: 0; color: var(--gold-300); font-weight: 700; }
 
   /* ---- Partners ---- */
   .partner-strip { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem; }
