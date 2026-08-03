@@ -1,7 +1,46 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { partners, recognition, pressLinks } from '../data/site';
+import aetcMinistryPresentation from '../assets/aetc-ministry-presentation.jpg';
+import aetcMinistryDiscussion from '../assets/aetc-ministry-discussion.jpg';
+import aetcDiscussionDiptych from '../assets/aetc-discussion-diptych.jpg';
+import aetcPecanVisit from '../assets/aetc-pecan-visit.jpg';
+import aetcAkumah from '../assets/aetc-akumah.jpg';
+
+const gallery = [
+  {
+    src: aetcMinistryPresentation,
+    wide: true,
+    alt: 'The AETC delegation with Hon. George Opare Addo, Minister for Youth Development and Empowerment, holding a framed presentation',
+    cap: 'With Hon. George Opare Addo, Minister for Youth Development and Empowerment, during the official visit with the AETC delegation.',
+  },
+  {
+    src: aetcPecanVisit,
+    wide: false,
+    alt: 'Group photo at Pecan Energies with AETC leadership and pitch challenge winners',
+    cap: 'At Pecan Energies in Accra, where FloodSense was presented during an AETC industry visit.',
+  },
+  {
+    src: aetcAkumah,
+    wide: false,
+    alt: 'The founder with Ms Emelia Akumah, Founder and President of the AETC, and a fellow pitch challenge winner',
+    cap: 'With Ms Emelia Akumah, Founder and President of the AETC.',
+  },
+  {
+    src: aetcMinistryDiscussion,
+    wide: false,
+    alt: 'A round-table discussion with the Minister and his team at the Ministry of Youth Development and Empowerment',
+    cap: 'In discussion with the Minister and his team at the Ministry.',
+  },
+  {
+    src: aetcDiscussionDiptych,
+    wide: false,
+    alt: 'The founder presenting FloodSense during the ministry meeting',
+    cap: "Presenting FloodSense to the Minister's team.",
+  },
+];
 
 // Richer context for each partner, keyed by name.
 const detail: Record<string, string> = {
@@ -63,6 +102,25 @@ const detail: Record<string, string> = {
           </li>
         ))}
       </ol>
+    </div>
+  </section>
+
+  <!-- ON THE GROUND -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">On the ground</p>
+        <h2>These engagements, in pictures</h2>
+      </div>
+      <div class="gallery">
+        {gallery.map((g) => (
+          <figure class:list={['gallery__item', { 'gallery__item--wide': g.wide }]}>
+            <Image src={g.src} alt={g.alt} widths={[560, 1120]} sizes="(max-width: 820px) 92vw, 560px" />
+            <figcaption>{g.cap}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <p class="gallery__credit">All photos: Africa Energy Technology Centre (AETC).</p>
     </div>
   </section>
 
@@ -145,6 +203,19 @@ const detail: Record<string, string> = {
   .honest-note {
     max-width: var(--measure); margin-inline: auto; font-size: 1rem; color: var(--ink-700);
     border-left: 3px solid var(--accent); padding-left: 1.1rem;
+  }
+
+  .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+  .gallery__item { margin: 0; }
+  .gallery__item--wide { grid-column: 1 / -1; }
+  .gallery__item img {
+    width: 100%; height: auto; border-radius: 12px;
+    border: 1px solid var(--line-strong); box-shadow: var(--shadow-sm);
+  }
+  .gallery__item figcaption { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; }
+  .gallery__credit { font-size: 0.78rem; color: var(--text-muted); margin-top: 1.2rem; }
+  @media (max-width: 700px) {
+    .gallery { grid-template-columns: 1fr; }
   }
 
   .press { list-style: none; padding: 0; display: grid; gap: 0.8rem; }

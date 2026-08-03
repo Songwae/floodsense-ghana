@@ -65,7 +65,11 @@ Update `site` in `astro.config.mjs` to the final domain before production
 
 - Home hero: project introduction video (`public/media/floodsense-home.mp4`),
   provided by the founder.
-- Founder photo (`src/assets/founder.jpg`): provided by the founder.
+- Founder photo (`src/assets/founder.jpg`) and fieldwork photos
+  (`src/assets/field-*.jpg`): provided by the founder.
+- Engagement photos (`src/assets/aetc-*.jpg`): courtesy of the
+  [Africa Energy Technology Centre (AETC)](https://theaetc.org), credited
+  on-page.
 - Sensor hardware photos and flood aerial (`src/assets/sensor-pole.jpg`,
   `sensor-station.jpg`, `flood-aerial.jpg`): sourced from
   [Pexels](https://www.pexels.com) under the
