@@ -364,6 +364,8 @@ const homeGallery = [
     width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
     border-radius: 12px; border: 1px solid var(--line-strong); box-shadow: var(--shadow-sm);
   }
+  /* Third photo is portrait-orientation; crop from the top so faces stay in frame */
+  .home-gallery__item:nth-child(3) img { object-position: center 18%; }
   .home-gallery__item figcaption { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.5rem; }
   .home-gallery__credit { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.8rem; }
   @media (max-width: 700px) {
